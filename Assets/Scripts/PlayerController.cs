@@ -15,11 +15,19 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody playerRb;
 
+    public int maxHealth = 100;
+    public int currentHealth;
+
+    public HealthBar healthBar;
+
     void Start()
     {
     
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
+
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     
     }
     
@@ -49,6 +57,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void TakeDamage(int damage) {
+    
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+
+    }
+
     private void OnCollisionEnter(Collision collision) {
     
         isOnGround = true;
@@ -58,6 +73,8 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter(Collider other) {
     
         Destroy(other.gameObject);
+        
+        TakeDamage(5);
 
     }
 
