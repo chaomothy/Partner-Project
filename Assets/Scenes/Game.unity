@@ -589,7 +589,6 @@ GameObject:
   - component: {fileID: 786525539}
   - component: {fileID: 786525538}
   - component: {fileID: 786525537}
-  - component: {fileID: 786525543}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player2
@@ -612,7 +611,7 @@ MonoBehaviour:
   horizontalInput: 0
   speed: 7.5
   jumpForce: 25
-  gravityModifier: 2
+  gravityModifier: 1.9
   isOnGround: 1
   maxHealth: 100
   currentHealth: 0
@@ -714,24 +713,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &786525543
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786525536}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &882013044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,7 +1216,7 @@ MonoBehaviour:
   horizontalInput: 0
   speed: 7.5
   jumpForce: 25
-  gravityModifier: 2
+  gravityModifier: 1.9
   isOnGround: 1
   maxHealth: 100
   currentHealth: 0

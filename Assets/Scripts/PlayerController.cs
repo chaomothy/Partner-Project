@@ -41,50 +41,78 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
+        horizontalInput = Input.GetAxis("Horizontal");
+        
         if (player.CompareTag("Player1")) {
         
-            horizontalInput = Input.GetAxis("Horizontal");
-            transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
-        
-        }
+            if(Input.GetKey(KeyCode.D)) {
+            
+                transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
 
-        if (transform.position.x > maxRange1 && player.CompareTag("Player1")) {
+            }
+
+            if(Input.GetKey(KeyCode.A)) {
+            
+                transform.Translate(Vector3.left * -horizontalInput * Time.deltaTime * speed);
+
+            }
+            
+            
+            if (transform.position.x > maxRange1) {
         
             transform.position = new Vector3(maxRange1, transform.position.y, transform.position.z);
 
-        }
-        else if (transform.position.x < minRange1 && player.CompareTag("Player1")) {
+            }
+            else if (transform.position.x < minRange1) {
         
             transform.position = new Vector3(minRange1, transform.position.y, transform.position.z);
 
-        }
+            }
 
-        if(Input.GetKeyDown(KeyCode.Space) && player.CompareTag("Player1") && isOnGround){
+            if(Input.GetKeyDown(KeyCode.Space) && isOnGround){
         
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
         
+            }
         }
 
 
-
-        if (transform.position.x > maxRange2 && player.CompareTag("Player2")) {
+        if (player.CompareTag("Player2")) {
         
-            transform.position = new Vector3(maxRange2, transform.position.y, transform.position.z);
+            if(Input.GetKey(KeyCode.RightArrow)) {
+            
+                transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
 
+            }
+
+            if(Input.GetKey(KeyCode.LeftArrow)) {
+            
+                transform.Translate(Vector3.left * -horizontalInput * Time.deltaTime * speed);
+
+            }
+
+
+            if (transform.position.x > maxRange2 && player.CompareTag("Player2")) {
+        
+                transform.position = new Vector3(maxRange2, transform.position.y, transform.position.z);
+
+            }
+
+            else if (transform.position.x < minRange2 && player.CompareTag("Player2")) {
+        
+                transform.position = new Vector3(minRange2, transform.position.y, transform.position.z);
+
+            }
+
+            if(Input.GetKeyDown(KeyCode.Z) && player.CompareTag("Player2") && isOnGround){
+        
+                playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                isOnGround = false;
+        
+            }
         }
-        else if (transform.position.x < minRange2 && player.CompareTag("Player2")) {
         
-            transform.position = new Vector3(minRange2, transform.position.y, transform.position.z);
-
-        }
-
-        if(Input.GetKeyDown(KeyCode.Z) && player.CompareTag("Player2") && isOnGround){
-        
-            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isOnGround = false;
-        
-        }
 
     }
 
