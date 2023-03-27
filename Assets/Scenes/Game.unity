@@ -258,7 +258,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -400, y: -192}
+  m_AnchoredPosition: {x: -286.6, y: -201.7}
   m_SizeDelta: {x: 200.4529, y: 20.2684}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &449783269
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -589,6 +589,7 @@ GameObject:
   - component: {fileID: 786525539}
   - component: {fileID: 786525538}
   - component: {fileID: 786525537}
+  - component: {fileID: 786525543}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player2
@@ -611,7 +612,7 @@ MonoBehaviour:
   horizontalInput: 0
   speed: 7.5
   jumpForce: 25
-  gravityModifier: 4
+  gravityModifier: 2
   isOnGround: 1
   maxHealth: 100
   currentHealth: 0
@@ -666,7 +667,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6c4e075712cd48240b5bd8f9bd61e7d4, type: 2}
+  - {fileID: 2100000, guid: b7859d77b8cdabb4c915e49c7951e6f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -713,6 +714,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &786525543
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786525536}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &882013044
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +768,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3, y: 500}
+  m_SizeDelta: {x: 1, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882013046
 MonoBehaviour:
@@ -1154,7 +1173,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b7859d77b8cdabb4c915e49c7951e6f3, type: 2}
+  - {fileID: 2100000, guid: 6c4e075712cd48240b5bd8f9bd61e7d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1216,7 +1235,7 @@ MonoBehaviour:
   horizontalInput: 0
   speed: 7.5
   jumpForce: 25
-  gravityModifier: 1
+  gravityModifier: 2
   isOnGround: 1
   maxHealth: 100
   currentHealth: 0
@@ -1275,7 +1294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 402, y: -192}
+  m_AnchoredPosition: {x: 285, y: -201.7}
   m_SizeDelta: {x: 200.4529, y: 20.2684}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1127487462
