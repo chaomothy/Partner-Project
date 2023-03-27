@@ -7,7 +7,12 @@ public class PlayerController : MonoBehaviour
     
     public float horizontalInput;
     public float speed = 7.5f;
-    public float xRange = 4.0f;
+    
+    private float minRange1 = -4.0f;
+    private float maxRange1 = 4.0f;
+    
+    private float minRange2 = 71.0f;
+    private float maxRange2 = 79.0f;
 
     public float jumpForce = 25;
     public float gravityModifier = 4;
@@ -19,6 +24,8 @@ public class PlayerController : MonoBehaviour
     public int currentHealth;
 
     public HealthBar healthBar;
+
+    public GameObject player;
 
     void Start()
     {
@@ -34,21 +41,45 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
-        horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
-
-        if (transform.position.x > xRange) {
+        if (player.CompareTag("Player1")) {
         
-            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
-
-        }
-        else if (transform.position.x < -xRange) {
+            horizontalInput = Input.GetAxis("Horizontal");
+            transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
         
-            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
-
         }
 
-        if(Input.GetKeyDown(KeyCode.W) && isOnGround){
+        if (transform.position.x > maxRange1 && player.CompareTag("Player1")) {
+        
+            transform.position = new Vector3(maxRange1, transform.position.y, transform.position.z);
+
+        }
+        else if (transform.position.x < minRange1 && player.CompareTag("Player1")) {
+        
+            transform.position = new Vector3(minRange1, transform.position.y, transform.position.z);
+
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space) && player.CompareTag("Player1") && isOnGround){
+        
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isOnGround = false;
+        
+        }
+
+
+
+        if (transform.position.x > maxRange2 && player.CompareTag("Player2")) {
+        
+            transform.position = new Vector3(maxRange2, transform.position.y, transform.position.z);
+
+        }
+        else if (transform.position.x < minRange2 && player.CompareTag("Player2")) {
+        
+            transform.position = new Vector3(minRange2, transform.position.y, transform.position.z);
+
+        }
+
+        if(Input.GetKeyDown(KeyCode.Keypad4) && player.CompareTag("Player2") && isOnGround){
         
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
