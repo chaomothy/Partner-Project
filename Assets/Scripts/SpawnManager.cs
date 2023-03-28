@@ -10,7 +10,7 @@ public class SpawnManager : MonoBehaviour
     public int spawnPosX = 0;
 
     private float startDelay = 3;
-    private float spawnInterval = 1.5f;
+    private float spawnInterval = 1f;
 
     public GameObject[] obstaclePrefabs;
     public int obstacleIndex;

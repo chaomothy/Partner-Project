@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject player;
 
+
     void Start()
     {
     
@@ -120,6 +121,12 @@ public class PlayerController : MonoBehaviour
     
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+
+        if(currentHealth == 0){
+        
+            FindObjectOfType<GameManager>().EndGame();
+        
+        }
 
     }
 
