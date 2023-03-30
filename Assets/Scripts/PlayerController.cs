@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
 
     public GameObject player;
 
+    public AudioClip jumpSound;
+    public AudioClip crashSound;
+
 
     void Start()
     {
