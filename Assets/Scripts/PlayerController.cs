@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject player;
 
+    private AudioSource playerAudio;
+
     public AudioClip jumpSound;
     public AudioClip crashSound;
 
@@ -37,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+
+        playerAudio = GetComponent<AudioSource>();
     
     }
     
