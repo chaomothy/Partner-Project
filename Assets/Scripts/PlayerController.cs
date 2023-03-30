@@ -79,7 +79,8 @@ public class PlayerController : MonoBehaviour
         
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
-        
+                playerAudio.PlayOneShot(jumpSound, 1.0f);
+
             }
         }
 
@@ -115,7 +116,11 @@ public class PlayerController : MonoBehaviour
         
                 playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isOnGround = false;
-        
+                playerAudio.PlayOneShot(jumpSound, 1.0f);
+
+
+
+
             }
         }
         
@@ -138,6 +143,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision) {
     
         isOnGround = true;
+        
 
     }
 
@@ -146,6 +152,7 @@ public class PlayerController : MonoBehaviour
         Destroy(other.gameObject);
         
         TakeDamage(5);
+        playerAudio.PlayOneShot(crashSound, 10.0f);
 
     }
 
