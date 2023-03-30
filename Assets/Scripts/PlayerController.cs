@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     private float maxRange2 = 79.0f;
 
     public float jumpForce = 25;
-    public float gravityModifier = 4;
     public bool isOnGround = true;
 
     private Rigidbody playerRb;
@@ -32,7 +31,6 @@ public class PlayerController : MonoBehaviour
     {
     
         playerRb = GetComponent<Rigidbody>();
-        Physics.gravity *= gravityModifier;
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
