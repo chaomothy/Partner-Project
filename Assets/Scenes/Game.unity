@@ -836,6 +836,8 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 1127487462}
   player: {fileID: 786525536}
+  jumpSound: {fileID: 0}
+  crashSound: {fileID: 0}
 --- !u!65 &786525538
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -968,7 +970,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1, y: 500}
+  m_SizeDelta: {x: 2, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882013046
 MonoBehaviour:
@@ -983,7 +985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1537,6 +1539,8 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 449783270}
   player: {fileID: 1090401297}
+  jumpSound: {fileID: 0}
+  crashSound: {fileID: 0}
 --- !u!54 &1090401303
 Rigidbody:
   m_ObjectHideFlags: 0
