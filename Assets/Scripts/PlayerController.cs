@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip crashSound;
 
+    public GameManager gameManager;
+
 
     void Start()
     {
@@ -124,6 +126,19 @@ public class PlayerController : MonoBehaviour
             }
         }
         
+        if(Input.GetKeyDown(KeyCode.Return)) 
+        {
+        
+            gameManager.RestartGame();
+
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape)) 
+        {
+        
+            gameManager.ExitToMenu();
+        
+        }
 
     }
 
@@ -132,9 +147,15 @@ public class PlayerController : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
-        if(currentHealth == 0){
+        if(currentHealth == 0 && player.CompareTag("Player2")){
         
-            FindObjectOfType<GameManager>().EndGame();
+            FindObjectOfType<GameManager>().EndGame1();
+        
+        }
+
+        if(currentHealth == 0 && player.CompareTag("Player1")){
+        
+            FindObjectOfType<GameManager>().EndGame2();
         
         }
 
