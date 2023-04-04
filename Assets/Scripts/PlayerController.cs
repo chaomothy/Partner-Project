@@ -28,9 +28,6 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource playerAudio;
 
-    public AudioClip jumpSound;
-    public AudioClip crashSound;
-
     public GameManager gameManager;
 
 
@@ -83,7 +80,6 @@ public class PlayerController : MonoBehaviour
         
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
-                playerAudio.PlayOneShot(jumpSound, 1.0f);
 
             }
         }
@@ -120,7 +116,6 @@ public class PlayerController : MonoBehaviour
         
                 playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isOnGround = false;
-                playerAudio.PlayOneShot(jumpSound, 1.0f);
 
 
 
@@ -205,7 +200,6 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
         
             TakeDamage(5);
-            playerAudio.PlayOneShot(crashSound, 10.0f);
 
         }
 
