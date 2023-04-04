@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     
     public float horizontalInput;
+    public float horizontalInput2;
+
     public float speed = 7.5f;
     
     private float minRange1 = -4.0f;
@@ -26,11 +28,6 @@ public class PlayerController : MonoBehaviour
 
     public GameObject player;
 
-    private AudioSource playerAudio;
-
-    public AudioClip jumpSound;
-    public AudioClip crashSound;
-
     public GameManager gameManager;
 
 
@@ -42,7 +39,7 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
 
-        playerAudio = GetComponent<AudioSource>();
+        InvokeRepeating("DamageOverTime", 1.0f, 0.25f);
     
     }
     
@@ -50,6 +47,7 @@ public class PlayerController : MonoBehaviour
     {
         
         horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput2 = Input.GetAxis("Horizontal2");
         
         if (player.CompareTag("Player1")) {
         
@@ -81,7 +79,6 @@ public class PlayerController : MonoBehaviour
         
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
-                playerAudio.PlayOneShot(jumpSound, 1.0f);
 
             }
         }
@@ -91,13 +88,13 @@ public class PlayerController : MonoBehaviour
         
             if(Input.GetKey(KeyCode.RightArrow)) {
             
-                transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+                transform.Translate(Vector3.right * horizontalInput2 * Time.deltaTime * speed);
 
             }
 
             if(Input.GetKey(KeyCode.LeftArrow)) {
             
-                transform.Translate(Vector3.left * -horizontalInput * Time.deltaTime * speed);
+                transform.Translate(Vector3.left * -horizontalInput2 * Time.deltaTime * speed);
 
             }
 
@@ -114,11 +111,10 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            if(Input.GetKeyDown(KeyCode.Z) && player.CompareTag("Player2") && isOnGround){
+            if(Input.GetKeyDown(KeyCode.Keypad4) || (Input.GetKeyDown(KeyCode.Alpha4)) && player.CompareTag("Player2") && isOnGround){
         
                 playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isOnGround = false;
-                playerAudio.PlayOneShot(jumpSound, 1.0f);
 
 
 
@@ -147,13 +143,13 @@ public class PlayerController : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
-        if(currentHealth == 0 && player.CompareTag("Player2")){
+        if(currentHealth < 1 && player.CompareTag("Player2")){
         
             FindObjectOfType<GameManager>().EndGame1();
         
         }
 
-        if(currentHealth == 0 && player.CompareTag("Player1")){
+        if(currentHealth < 1 && player.CompareTag("Player1")){
         
             FindObjectOfType<GameManager>().EndGame2();
         
@@ -161,10 +157,22 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void DamageOverTime() {
+    
+        TakeDamage(1);
+    
+    }
+
     void Heal(int healing) {
     
         currentHealth += healing;
         healthBar.SetHealth(currentHealth);
+
+        if(currentHealth > maxHealth) {
+        
+            currentHealth = maxHealth;
+
+        }
 
     }
 
@@ -191,7 +199,6 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
         
             TakeDamage(5);
-            playerAudio.PlayOneShot(crashSound, 10.0f);
 
         }
 
