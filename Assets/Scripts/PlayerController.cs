@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            if(Input.GetKeyDown(KeyCode.Z) && player.CompareTag("Player2") && isOnGround){
+            if(Input.GetKeyDown(KeyCode.Keypad4) || (Input.GetKeyDown(KeyCode.Alpha4)) && player.CompareTag("Player2") && isOnGround){
         
                 playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isOnGround = false;
@@ -165,6 +165,12 @@ public class PlayerController : MonoBehaviour
     
         currentHealth += healing;
         healthBar.SetHealth(currentHealth);
+
+        if(currentHealth > maxHealth) {
+        
+            currentHealth = maxHealth;
+
+        }
 
     }
 
