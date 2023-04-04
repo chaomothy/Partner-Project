@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     
     public float horizontalInput;
+    public float horizontalInput2;
+
     public float speed = 7.5f;
     
     private float minRange1 = -4.0f;
@@ -26,8 +28,6 @@ public class PlayerController : MonoBehaviour
 
     public GameObject player;
 
-    private AudioSource playerAudio;
-
     public GameManager gameManager;
 
 
@@ -39,8 +39,6 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
 
-        playerAudio = GetComponent<AudioSource>();
-
         InvokeRepeating("DamageOverTime", 1.0f, 0.25f);
     
     }
@@ -49,6 +47,7 @@ public class PlayerController : MonoBehaviour
     {
         
         horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput2 = Input.GetAxis("Horizontal2");
         
         if (player.CompareTag("Player1")) {
         
@@ -89,13 +88,13 @@ public class PlayerController : MonoBehaviour
         
             if(Input.GetKey(KeyCode.RightArrow)) {
             
-                transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+                transform.Translate(Vector3.right * horizontalInput2 * Time.deltaTime * speed);
 
             }
 
             if(Input.GetKey(KeyCode.LeftArrow)) {
             
-                transform.Translate(Vector3.left * -horizontalInput * Time.deltaTime * speed);
+                transform.Translate(Vector3.left * -horizontalInput2 * Time.deltaTime * speed);
 
             }
 
