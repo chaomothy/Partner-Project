@@ -28,10 +28,15 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnObstacles() {
     
-        int obstacleIndex = Random.Range(0, obstaclePrefabs.Length);
-        Vector3 spawnPos = new Vector3(spawnPosX, obstaclePrefabs[obstacleIndex].transform.position.y, spawnPosZ);
+        int chance = Random.Range(1, 100);
 
-        Instantiate(obstaclePrefabs[obstacleIndex], spawnPos, obstaclePrefabs[obstacleIndex].transform.rotation);
+        if(chance > 5) {
+        
+            int obstacleIndex = Random.Range(0, obstaclePrefabs.Length);
+            Vector3 spawnPos = new Vector3(spawnPosX, obstaclePrefabs[obstacleIndex].transform.position.y, spawnPosZ);
 
+            Instantiate(obstaclePrefabs[obstacleIndex], spawnPos, obstaclePrefabs[obstacleIndex].transform.rotation);
+        
+        }
     }
 }
