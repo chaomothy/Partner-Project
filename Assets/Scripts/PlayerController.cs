@@ -161,6 +161,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void Heal(int healing) {
+    
+        currentHealth += healing;
+        healthBar.SetHealth(currentHealth);
+
+    }
+
     private void OnCollisionEnter(Collision collision) {
     
         isOnGround = true;
@@ -168,19 +175,25 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    
-
     void OnTriggerEnter(Collider other) {
-    
-        Destroy(other.gameObject);
         
-        TakeDamage(5);
-        playerAudio.PlayOneShot(crashSound, 10.0f);
+        if(other.gameObject.CompareTag("PowerUp")) 
         {
+        
+            Destroy(other.gameObject);
+
+            Heal(10);
+            
+        }
+        else 
+        {
+        
+            Destroy(other.gameObject);
+        
+            TakeDamage(5);
+            playerAudio.PlayOneShot(crashSound, 10.0f);
 
         }
-
-      
 
     }
 
