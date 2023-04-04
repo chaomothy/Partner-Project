@@ -25,3 +25,5 @@ Credits :
 
 "10 Power-Ups" by TeKniKo
 https://assetstore.unity.com/packages/3d/props/ten-power-ups-217666
+
+In-Game Music : https://www.youtube.com/watch?v=DjeCP5HR878
