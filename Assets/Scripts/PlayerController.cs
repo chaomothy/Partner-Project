@@ -168,12 +168,19 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    
+
     void OnTriggerEnter(Collider other) {
     
         Destroy(other.gameObject);
         
         TakeDamage(5);
         playerAudio.PlayOneShot(crashSound, 10.0f);
+        {
+
+        }
+
+      
 
     }
 
