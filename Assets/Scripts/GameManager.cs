@@ -21,6 +21,12 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI menuText;
 
 
+    void Start() {
+    
+        Cursor.visible = false;
+
+    }
+    
     public void EndGame1 () 
     {
     
